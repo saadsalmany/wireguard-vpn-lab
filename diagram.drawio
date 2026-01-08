@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.10">
+  <diagram name="Page-1" id="1T_6R_cYJPIR0E90YsIh">
+    <mxGraphModel dx="990" dy="583" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="lx05Mi2NG4thzUFjttw7-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;p data-pm-slice=&quot;0 0 []&quot; style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;A remote employee needs to access the company private network from remote location securely without exposing the company internal network to internet. No other traffic should have access to company internal subnet.&lt;/span&gt;&lt;/p&gt;&lt;p data-pm-slice=&quot;0 0 []&quot; style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/p&gt;&lt;p data-pm-slice=&quot;0 0 []&quot;&gt;&lt;br&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="88" width="619.43" x="70" y="107" as="geometry" />
+        </mxCell>
+        <mxCell id="EuEedCvQAZ8iB6N49MZ4-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Problem&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="70" y="73" as="geometry" />
+        </mxCell>
+        <mxCell id="EuEedCvQAZ8iB6N49MZ4-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Solution&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="70" y="198" as="geometry" />
+        </mxCell>
+        <mxCell id="EuEedCvQAZ8iB6N49MZ4-4" parent="1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;whiteSpace=wrap;html=1;" value="&lt;br&gt;&lt;br&gt;&lt;br&gt;We create a VPC in AWS which will act as the company office network. The VPC uses private IP addresses and represents the internal network of the company.&lt;br&gt;&lt;br&gt;Inside this VPC, we launch an EC2 VM which will act as the VPN Gateway for the company network. This VM is part of the private network and will be the only entry point for remote access.&lt;br&gt;&lt;br&gt;To access this network from a remote location, WireGuard is configured on both ends. One peer is the remote employee device and the other peer is the VPN Gateway VM inside the VPC. WireGuard creates virtual interfaces on both sides and establishes an encrypted tunnel using public and private keys.&lt;br&gt;&lt;br&gt;Only devices that have the correct cryptographic keys can send traffic through this tunnel. Any packet that does not match the configured keys is dropped.&lt;br&gt;&lt;br&gt;AWS Security Groups are configured on the VPN Gateway to allow only required VPN traffic and limited management access. All other traffic is blocked so the internal network is not exposed to the internet.&lt;br&gt;&lt;br&gt;Using this setup, the remote employee can securely access the company private network over the internet without making the internal network public.&lt;br&gt;&lt;br&gt;" vertex="1">
+          <mxGeometry height="235" width="619.43" x="70" y="234" as="geometry" />
+        </mxCell>
+        <mxCell id="EuEedCvQAZ8iB6N49MZ4-15" connectable="0" parent="1" style="group;align=center;" value="" vertex="1">
+          <mxGeometry height="381" width="346.36" x="444" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="EuEedCvQAZ8iB6N49MZ4-13" parent="EuEedCvQAZ8iB6N49MZ4-15" style="rounded=1;arcSize=10;dashed=0;fillColor=none;gradientColor=none;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="346.3636363636364" width="346.36" y="34.63636363636364" as="geometry" />
+        </mxCell>
+        <mxCell id="EuEedCvQAZ8iB6N49MZ4-16" parent="EuEedCvQAZ8iB6N49MZ4-15" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.cloud_2;fillColor=#F58534;gradientColor=none;" value="" vertex="1">
+          <mxGeometry height="54" width="54" x="26" y="7" as="geometry" />
+        </mxCell>
+        <mxCell id="EuEedCvQAZ8iB6N49MZ4-12" connectable="0" parent="EuEedCvQAZ8iB6N49MZ4-15" style="group" value="" vertex="1">
+          <mxGeometry height="260" width="237.36" x="58" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="EuEedCvQAZ8iB6N49MZ4-6" parent="EuEedCvQAZ8iB6N49MZ4-12" style="rounded=1;arcSize=10;dashed=0;fillColor=none;gradientColor=none;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="223.31279069767436" width="237.36" y="36.68720930232558" as="geometry" />
+        </mxCell>
+        <mxCell id="EuEedCvQAZ8iB6N49MZ4-7" parent="EuEedCvQAZ8iB6N49MZ4-12" style="dashed=0;html=1;shape=mxgraph.aws3.virtual_private_cloud;fillColor=#F58536;gradientColor=none;dashed=0;" value="" vertex="1">
+          <mxGeometry height="57.44186046511627" width="88.18992739778373" x="44.85079098204051" as="geometry" />
+        </mxCell>
+        <mxCell id="EuEedCvQAZ8iB6N49MZ4-18" parent="EuEedCvQAZ8iB6N49MZ4-12" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="10.0.0.0/16" vertex="1">
+          <mxGeometry height="30" width="60" x="137" y="14" as="geometry" />
+        </mxCell>
+        <mxCell id="OzegYINQJVcnvKFdK7Ne-6" connectable="0" parent="EuEedCvQAZ8iB6N49MZ4-12" style="group" value="" vertex="1">
+          <mxGeometry height="169" width="86" x="23" y="72" as="geometry" />
+        </mxCell>
+        <mxCell id="OzegYINQJVcnvKFdK7Ne-4" parent="OzegYINQJVcnvKFdK7Ne-6" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="" vertex="1">
+          <mxGeometry height="139" width="68" x="9" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EuEedCvQAZ8iB6N49MZ4-17" parent="OzegYINQJVcnvKFdK7Ne-6" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;" value="Gateway" vertex="1">
+          <mxGeometry height="38" width="38" x="22" y="57" as="geometry" />
+        </mxCell>
+        <mxCell id="OzegYINQJVcnvKFdK7Ne-5" parent="OzegYINQJVcnvKFdK7Ne-6" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=9;" value="Public Subnet&lt;div&gt;10.0.0.0/24&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="86" as="geometry" />
+        </mxCell>
+        <mxCell id="OzegYINQJVcnvKFdK7Ne-7" connectable="0" parent="EuEedCvQAZ8iB6N49MZ4-12" style="group" value="" vertex="1">
+          <mxGeometry height="169" width="86" x="126" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="OzegYINQJVcnvKFdK7Ne-8" parent="OzegYINQJVcnvKFdK7Ne-7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="" vertex="1">
+          <mxGeometry height="139" width="68" x="9" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OzegYINQJVcnvKFdK7Ne-9" parent="OzegYINQJVcnvKFdK7Ne-7" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;" value="VPN&lt;div&gt;Gateway&lt;/div&gt;" vertex="1">
+          <mxGeometry height="38" width="38" x="22" y="57" as="geometry" />
+        </mxCell>
+        <mxCell id="OzegYINQJVcnvKFdK7Ne-10" parent="OzegYINQJVcnvKFdK7Ne-7" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=9;" value="Public Subnet&lt;div&gt;10.0.0.0/24&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="86" as="geometry" />
+        </mxCell>
+        <mxCell id="EuEedCvQAZ8iB6N49MZ4-19" parent="EuEedCvQAZ8iB6N49MZ4-15" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="AWS console" vertex="1">
+          <mxGeometry height="30" width="85" x="83" y="11" as="geometry" />
+        </mxCell>
+        <mxCell id="EuEedCvQAZ8iB6N49MZ4-20" parent="1" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/laptop_client.svg;" value="Client - 10.0.0.x/24" vertex="1">
+          <mxGeometry height="64" width="57.6" x="99" y="614" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
